@@ -36,10 +36,14 @@ suite('Functional Tests', function () {
       chai
         .request(server)
         .put('/travellers')
-
+        .send({
+          surname: "Colombo"
+        })
         .end(function (err, res) {
-          assert.fail();
-
+          assert.equal(res.status, 200);
+          assert.equal(res.type);
+          assert.equal(res.body.name);
+          assert.equal(res.body.surname);
           done();
         });
     });
