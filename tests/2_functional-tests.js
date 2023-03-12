@@ -53,13 +53,13 @@ suite('Functional Tests', function () {
         .request(server)
         .put('/travellers')
         .send({surname: "da Verrazzano"})
-        .end(
+        .end((err, res) => {
           assert.equals(res.status, 200);
           assert.equals(res.type, 'application/json');
           assert.equals(res.body.name, 'Giovanni');
           assert.equals(res.body.surname, 'da Verrazzano');
           done();
-        );
+        });
     });
   });
 });
