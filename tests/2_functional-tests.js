@@ -49,9 +49,9 @@ suite('Functional Tests', function () {
     });
     // #4
     test('Send {surname: "da Verrazzano"}', function (done) {
-      .request(server);
-      .put('/travellers');
-      .send({surname: "da Verrazzano"});
+      .request(server)
+      .put('/travellers')
+      .send({surname: "da Verrazzano"})
       .end(
         assert.equals(res.status, 200);
         assert.equals(res.type, 'application/json');
